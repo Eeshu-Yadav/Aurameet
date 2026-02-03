@@ -139,6 +139,15 @@ const ContextProvider = ({ children }) => {
             peer.signal(signal);
         });
 
+        peer.on('error', (err) => {
+             console.error("Peer connection error (Call):", err);
+        });
+
+        peer.on('close', () => {
+            console.log("Peer connection closed (Call)");
+            setCallEnded(true);
+        });
+
         connectionRef.current = peer;
     };
 
