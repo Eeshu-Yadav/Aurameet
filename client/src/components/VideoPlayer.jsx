@@ -16,7 +16,7 @@ const VideoPlayer = () => {
             {/* Our own video */}
             {stream && (
                 <div className="p-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20">
-                    <div className="relative rounded-lg overflow-hidden">
+                    <div className="relative rounded-lg overflow-hidden w-[300px] md:w-[550px] aspect-video bg-black flex items-center justify-center">
                         <h3 className="absolute bottom-2 left-2 text-white bg-black/50 px-3 py-1 rounded z-10 text-sm">
                             {name || 'Me'}
                         </h3>
@@ -25,7 +25,7 @@ const VideoPlayer = () => {
                             muted 
                             ref={myVideo} 
                             autoPlay 
-                            className="w-[300px] md:w-[550px] rounded-lg block scale-x-[-1]" 
+                            className="w-full h-full rounded-lg block object-cover scale-x-[-1]" 
                         />
                     </div>
                 </div>
