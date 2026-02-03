@@ -13,7 +13,8 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/register', formData);
+            const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+            const res = await axios.post(`${BACKEND_URL}/api/auth/register`, formData);
             localStorage.setItem('token', res.data.token);
             navigate('/');
         } catch (err) {

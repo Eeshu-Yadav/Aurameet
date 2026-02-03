@@ -27,7 +27,8 @@ const ContextProvider = ({ children }) => {
         // Fetch user info if logged in
         const token = localStorage.getItem('token');
         if (token) {
-            axios.get('http://localhost:5000/api/auth/me', {
+            const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+            axios.get(`${BACKEND_URL}/api/auth/me`, {
                 headers: { 'x-auth-token': token }
             })
             .then(res => {
