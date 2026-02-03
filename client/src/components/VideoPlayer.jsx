@@ -48,7 +48,6 @@ const VideoPlayer = () => {
                                 playsInline 
                                 ref={userVideo} 
                                 autoPlay 
-                                controls
                                 className="w-full h-full rounded-lg block object-cover" 
                             />
                         )}
