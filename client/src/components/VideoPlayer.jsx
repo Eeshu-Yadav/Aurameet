@@ -11,6 +11,12 @@ const VideoPlayer = () => {
         }
     }, [stream, myVideo]);
 
+    React.useEffect(() => {
+        if (callAccepted && userVideo.current && userVideo.current.srcObject) {
+            userVideo.current.play().catch(err => console.log("Video play error:", err));
+        }
+    }, [callAccepted, userVideo]);
+
     return (
         <div className="flex justify-center flex-wrap gap-6 mt-5">
             {/* Our own video */}

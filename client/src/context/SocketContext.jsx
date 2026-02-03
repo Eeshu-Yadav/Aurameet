@@ -106,7 +106,9 @@ const ContextProvider = ({ children }) => {
             setCallEnded(true);
         });
 
-        peer.signal(call.signal);
+        if (peer && !peer.destroyed) {
+            peer.signal(call.signal);
+        }
         connectionRef.current = peer;
     };
 
@@ -134,9 +136,12 @@ const ContextProvider = ({ children }) => {
             }
         });
 
+        socket.off('callAccepted');
         socket.on('callAccepted', (signal) => {
             setCallAccepted(true);
-            peer.signal(signal);
+            if (peer && !peer.destroyed) {
+                peer.signal(signal);
+            }
         });
 
         peer.on('error', (err) => {
