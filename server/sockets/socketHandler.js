@@ -20,7 +20,7 @@ module.exports = (io, socket) => {
     console.log(`Socket ${socket.id} connected. Assigned Short ID: ${shortId}`);
 
     socket.on('disconnect', () => {
-        socket.broadcast.emit("callEnded");
+        // socket.broadcast.emit("callEnded");
         const sId = socketToShort.get(socket.id);
         console.log(`Socket ${socket.id} disconnected. Removed Short ID: ${sId}`);
         if (sId) {
