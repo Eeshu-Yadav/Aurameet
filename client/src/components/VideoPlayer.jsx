@@ -5,6 +5,12 @@ import { User } from 'lucide-react';
 const VideoPlayer = () => {
     const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } = useContext(SocketContext);
 
+    React.useEffect(() => {
+        if (stream && myVideo.current) {
+            myVideo.current.srcObject = stream;
+        }
+    }, [stream, myVideo]);
+
     return (
         <div className="flex justify-center flex-wrap gap-5 mt-5">
             {/* Our own video */}
