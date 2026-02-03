@@ -48,7 +48,7 @@ const VideoPlayer = () => {
                                 playsInline 
                                 ref={userVideo} 
                                 autoPlay 
-                                className="w-full h-full rounded-lg block object-cover" 
+                                className="w-full h-full rounded-lg block object-contain bg-black" 
                             />
                         )}
                     </div>
